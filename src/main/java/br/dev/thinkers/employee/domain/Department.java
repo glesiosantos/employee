@@ -1,9 +1,18 @@
 package br.dev.thinkers.employee.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import lombok.*;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "departments")
-public class Department {
+public class Department extends AbstractEntity<String> {
+
+    private String name;
+
+    @OneToMany(mappedBy = "department")
+    private List<Position> positions;
 }
