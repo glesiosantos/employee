@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = false)
+@Transactional
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PositionServiceImpl implements PositionService {
 

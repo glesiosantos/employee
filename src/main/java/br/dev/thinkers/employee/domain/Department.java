@@ -1,5 +1,6 @@
 package br.dev.thinkers.employee.domain;
 
+import br.dev.thinkers.employee.controller.dto.DepartmentDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,4 +16,14 @@ public class Department extends AbstractEntity<String> {
 
     @OneToMany(mappedBy = "department")
     private List<Position> positions;
+
+    public Department(){}
+
+    public Department(DepartmentDto obj) {
+        if (!obj.getId().isBlank()) {
+            this.setId(obj.getId());
+        }
+
+        this.name = obj.getName();
+    }
 }

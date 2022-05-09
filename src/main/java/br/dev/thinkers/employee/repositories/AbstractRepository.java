@@ -1,8 +1,6 @@
 package br.dev.thinkers.employee.repositories;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
