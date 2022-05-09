@@ -1,0 +1,45 @@
+package br.dev.thinkers.employee.services.impl;
+
+import br.dev.thinkers.employee.domain.Department;
+import br.dev.thinkers.employee.domain.Position;
+import br.dev.thinkers.employee.repositories.DepartmentRepository;
+import br.dev.thinkers.employee.services.DepartmentService;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
+public class DepartmentServiceImpl implements DepartmentService {
+
+    private final DepartmentRepository departmentRepository;
+
+    @Override
+    public void save(Department department) {
+        departmentRepository.save(department);
+    }
+
+    @Override
+    public void update(Department department) {
+        departmentRepository.update(department);
+    }
+
+    @Override
+    public void remove(String id) {
+        departmentRepository.delete(id);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Department findPositionById(String id) {
+        return departmentRepository.findById(id);
+    }
+
+    @Override
+    public List<Department> loadAllPositions() {
+        return departmentRepository.findAll();
+    }
+}
