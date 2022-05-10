@@ -1,6 +1,7 @@
 package br.dev.thinkers.employee.services.impl;
 
 import br.dev.thinkers.employee.domain.Department;
+
 import br.dev.thinkers.employee.domain.Position;
 import br.dev.thinkers.employee.repositories.DepartmentRepository;
 import br.dev.thinkers.employee.services.DepartmentService;
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class DepartmentServiceImpl implements DepartmentService {
 
@@ -38,8 +40,14 @@ public class DepartmentServiceImpl implements DepartmentService {
         return departmentRepository.findById(id);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<Department> loadAllPositions() {
         return departmentRepository.findAll();
+    }
+
+    @Override
+    public boolean hasPosition(String id) {
+        return findPositionById(id).getPositions().isEmpty();
     }
 }

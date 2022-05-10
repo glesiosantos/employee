@@ -1,5 +1,6 @@
 package br.dev.thinkers.employee.repositories;
 
+import javax.persistence.*;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;

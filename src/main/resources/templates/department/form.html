@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<body>
+<div layout:fragment="content">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary" th:text="${departmentDto.id == null} ? 'New Department' : 'Edit Department'"></h6>
+        </div>
+        <div class="card-body">
+            <div th:replace="components/alert"></div>
+            <form th:action="${departmentDto.id == null } ? @{/departments/save}: @{/departments/update}" th:object="${departmentDto}" method="post">
+                <input type="hidden" th:field="*{id}">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Department name" th:field="*{name}">
+                </div>
+                <button class="btn btn-primary btn-sm" type="submit">Save Department</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
