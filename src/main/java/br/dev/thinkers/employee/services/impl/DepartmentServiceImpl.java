@@ -1,6 +1,8 @@
 package br.dev.thinkers.employee.services.impl;
 
 import br.dev.thinkers.employee.domain.Department;
+
+import br.dev.thinkers.employee.domain.Position;
 import br.dev.thinkers.employee.repositories.DepartmentRepository;
 import br.dev.thinkers.employee.services.DepartmentService;
 import lombok.AllArgsConstructor;
