@@ -42,14 +42,14 @@ public class DepartmentController {
     @GetMapping
     public String load(ModelMap model) {
         List<DepartmentDto> departmentList = new ArrayList<>();
-        departmentService.loadAllPositions().forEach(department -> departmentList.add(new DepartmentDto(department)));
+        departmentService.loadAllDepartments().forEach(department -> departmentList.add(new DepartmentDto(department)));
         model.addAttribute("departmentList", departmentList);
         return "department/load";
     }
 
     @GetMapping("/edit/{id}")
     public String preEdit(@PathVariable("id") String id, ModelMap model) {
-        Department department = departmentService.findPositionById(id);
+        Department department = departmentService.findDepartmentById(id);
         model.addAttribute("departmentDto", new DepartmentDto(department));
         return "department/form";
     }

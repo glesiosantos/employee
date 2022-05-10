@@ -1,5 +1,6 @@
 package br.dev.thinkers.employee.domain;
 
+import br.dev.thinkers.employee.controller.dto.PositionDTO;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,4 +20,14 @@ public class Position extends AbstractEntity<String> {
 
     @OneToMany(mappedBy = "position")
     private List<Employee> employees;
+
+    public Position() {}
+
+    public Position(PositionDTO dto, Department department) {
+        if(!dto.getId().isBlank()) {
+            setId(dto.getId());
+        }
+        this.name = dto.getName();
+        this.department = department;
+    }
 }

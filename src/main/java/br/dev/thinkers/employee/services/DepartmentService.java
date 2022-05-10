@@ -1,7 +1,6 @@
 package br.dev.thinkers.employee.services;
 
 import br.dev.thinkers.employee.domain.Department;
-import br.dev.thinkers.employee.domain.Position;
 
 import java.util.List;
 
@@ -13,9 +12,9 @@ public interface DepartmentService {
 
     void remove(String id);
 
-    Department findPositionById(String id);
+    Department findDepartmentById(String id);
 
-    List<Department> loadAllPositions();
+    List<Department> loadAllDepartments();
 
     boolean hasPosition(String id);
 }

@@ -2,7 +2,6 @@ package br.dev.thinkers.employee.services.impl;
 
 import br.dev.thinkers.employee.domain.Department;
 
-import br.dev.thinkers.employee.domain.Position;
 import br.dev.thinkers.employee.repositories.DepartmentRepository;
 import br.dev.thinkers.employee.services.DepartmentService;
 import lombok.AllArgsConstructor;
@@ -36,18 +35,18 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Transactional(readOnly = true)
     @Override
-    public Department findPositionById(String id) {
+    public Department findDepartmentById(String id) {
         return departmentRepository.findById(id);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<Department> loadAllPositions() {
+    public List<Department> loadAllDepartments() {
         return departmentRepository.findAll();
     }
 
     @Override
     public boolean hasPosition(String id) {
-        return findPositionById(id).getPositions().isEmpty();
+        return findDepartmentById(id).getPositions().isEmpty();
     }
 }
