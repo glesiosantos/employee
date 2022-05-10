@@ -16,4 +16,6 @@ public interface DepartmentService {
     Department findPositionById(String id);
 
     List<Department> loadAllPositions();
+
+    boolean hasPosition(String id);
 }

@@ -2,4 +2,5 @@
 $(document).ready(function() {
   $('#dataTable').DataTable();
   $('#positionTable').DataTable();
+  $('#departmentTable').DataTable();
 });

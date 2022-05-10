@@ -43,4 +43,9 @@ public class DepartmentServiceImpl implements DepartmentService {
     public List<Department> loadAllPositions() {
         return departmentRepository.findAll();
     }
+
+    @Override
+    public boolean hasPosition(String id) {
+        return findPositionById(id).getPositions().isEmpty();
+    }
 }
