@@ -15,4 +15,6 @@ public interface PositionService {
     Position findPositionById(String id);
 
     List<Position> loadAllPositions();
+
+    boolean hasEmployee(String id);
 }

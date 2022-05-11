@@ -50,12 +50,27 @@ public class PositionController {
 
     @PostMapping("/update")
     public String updatePosition(PositionDTO positionDTO, RedirectAttributes attr) {
+        Department department = departmentService.findDepartmentById(positionDTO.getIdDepartment());
+        positionService.update(new Position(positionDTO, department));
         attr.addFlashAttribute("success", "Cargo atualizado com sucesso!");
         return "redirect:/positions";
     }
 
     @GetMapping("/edit/{id}")
-    public String updatedPosition(@PathVariable("id") String id) {
+    public String updatedPosition(@PathVariable("id") String id, ModelMap model) {
+        Position position = positionService.findPositionById(id);
+        model.addAttribute("positionDTO", new PositionDTO(position));
         return "positions/form";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String remover(@PathVariable("id") String id, RedirectAttributes attr) {
+        if(!positionService.hasEmployee(id)){
+            attr.addFlashAttribute("warning", "Cargo não pode ser excluido, pois possui funcionários vinculado ao cargo");
+        } else {
+            positionService.remove(id);
+            attr.addFlashAttribute("success", "Cargo excluído com sucesso");
+        }
+        return "redirect:/positions";
     }
 }

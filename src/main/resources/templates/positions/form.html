@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <div th:replace="components/alert"></div>
-            <form th:action="@{/positions/save}" th:object="${positionDTO}" method="post">
+            <form th:action="${positionDTO.id == null } ? @{/positions/save}: @{/positions/update}" th:object="${positionDTO}" method="post">
                 <input type="hidden" th:field="*{id}">
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Name</label>

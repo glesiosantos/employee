@@ -41,4 +41,9 @@ public class PositionServiceImpl implements PositionService {
     public List<Position> loadAllPositions() {
         return positionRepository.findAll();
     }
+
+    @Override
+    public boolean hasEmployee(String id) {
+        return findPositionById(id).getEmployees().isEmpty();
+    }
 }
