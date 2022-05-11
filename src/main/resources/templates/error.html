@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+    <meta charset="utf-8">
+    <title th:text="${status}">Employee Manager</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="text-center">
+        <div class="error mx-auto" th:text="${status}">404</div>
+        <p class="lead text-gray-800 mb-5" th:text="${error}">Page Not Found</p>
+        <p class="text-gray-500 mb-0" th:text="${error}">It looks like you found a glitch in the matrix...</p>
+        <a href="javascript:history.back()">← Voltar a página anterior</a>
+    </div>
+</div>
+</body>
+</html>
