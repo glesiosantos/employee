@@ -35,14 +35,14 @@
                         </tfoot>
                         <tbody>
                         <tr th:each="d : ${departmentList}" >
-                            <th th:text="${d.id}">Cod</th>
-                            <th th:text="${d.name}">Name</th>
-                            <th>
+                            <td th:text="${d.id}">Cod</td>
+                            <td th:text="${d.name}">Name</td>
+                            <td>
                                 <a class="btn btn-primary btn-sm" th:href="@{/departments/edit/{id} (id=${d.id})}"><i class="fa fa-edit"></i></a>
                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#staticBackdrop" th:id="${'btn_departments/delete/'+d.id}" >
                                     <i class="fa fa-trash"></i>
                                 </button>
-                            </th>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

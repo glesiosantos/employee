@@ -29,5 +29,4 @@ public class Employee extends AbstractEntity<String> {
     @ManyToOne
     @JoinColumn(name = "position_id")
     private Position position;
-
 }
