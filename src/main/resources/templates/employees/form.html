@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<body>
+<div layout:fragment="content">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+<!--            <h6 class="m-0 font-weight-bold text-primary" th:text="${employeeDTO.id == null} ? #{header.add.form.employee} : #{header.add.form.employee}"></h6>-->
+        </div>
+        <div class="card-body">
+            <div th:replace="components/alert"></div>
+<!--            <form th:action="${departmentDto.id == null } ? @{/departments/save}: @{/departments/update}" th:object="${departmentDto}" method="post">-->
+<!--                <input type="hidden" th:field="*{id}">-->
+<!--                <div class="mb-3">-->
+<!--                    <label for="formGroupExampleInput" class="form-label">Name</label>-->
+<!--                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Department name" th:field="*{name}">-->
+<!--                </div>-->
+<!--                <button class="btn btn-primary btn-sm" type="submit">Save Department</button>-->
+<!--            </form>-->
+            <form>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationServer01" th:text="#{label.form.employee.name}"></label>
+                        <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
+                        <div class="valid-feedback" >
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationServer02" th:text="#{label.form.employee.salary}"></label>
+                        <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationServer01" th:text="#{label.form.employee.entry.date}"></label>
+                        <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationServer02" th:text="#{label.form.employee.departure.date}"></label>
+                        <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col-md-12 mb-12">
+                        <label for="validationServer04" th:text="#{label.form.employee.position}">Position</label>
+                        <select th:class="${isInvalid} ? 'custom-select is-invalid' : 'custom-select'" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>...</option>
+                        </select>
+                        <div id="validationServer04Feedback" class="invalid-feedback" th:if="${isInvalid}">
+                            Please select a valid state.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col-md-3 mb-3">
+                        <label for="validationServer05" th:text="#{label.form.employee.zip}">Zip</label>
+                        <input type="text" th:class="${isInvalid} ? 'form-control is-invalid' : 'form-control'" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+                        <div id="validationServer05Feedback" class="invalid-feedback" th:if="${isInvalid}">
+                            Please provide a valid zip.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationServer03" th:text="#{label.form.employee.street}">Street</label>
+                        <input type="text" th:class="${isInvalid} ? 'form-control is-invalid' : 'form-control'" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+                        <div id="validationServer03Feedback" class="invalid-feedback" th:if="${isInvalid}">
+                            Please provide a valid city.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationServer05" th:text="#{label.form.employee.city}">City</label>
+                        <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+                        <div id="validationServer05Feedback" class="invalid-feedback" th:if="${isInvalid}">
+                            Please provide a valid zip.
+                        </div>
+                    </div>
+                    <div id="validationServer04Feedback" class="invalid-feedback">
+                        Please select a valid state.
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationServer04" th:text="#{label.form.employee.state}">State</label>
+                        <select class="custom-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col-md-12">
+                        <label for="validationTextarea" th:text="#{label.form.employee.observation}">Observation</label>
+                        <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea"></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" th:text="#{button.form.employee.save}">Save employee</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

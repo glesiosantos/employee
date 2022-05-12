@@ -35,12 +35,12 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#positionSidebar"
            aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span th:text="#{sidebar.position}"></span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="positionSidebar" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" th:href="@{/positions}"><span th:text="#{sidebar.position.load}"></span></a>
                 <a class="collapse-item" th:href="@{/positions/add}"><span th:text="#{sidebar.position.add}"></span></a>
@@ -49,15 +49,29 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#departmentSidebar"
            aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span th:text="#{sidebar.department}"></span>
         </a>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="departmentSidebar" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" th:href="@{/departments}"><span th:text="#{sidebar.department.load}"></span></a>
                 <a class="collapse-item" th:href="@{/departments/add}"><span th:text="#{sidebar.department.add}"></span></a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#sidebarEmployee"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span th:text="#{sidebar.employee}"></span>
+        </a>
+        <div id="sidebarEmployee" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" th:href="@{/employees}"><span th:text="#{sidebar.employee.load}"></span></a>
+                <a class="collapse-item" th:href="@{/employees/add}"><span th:text="#{sidebar.employee.add}"></span></a>
             </div>
         </div>
     </li>
