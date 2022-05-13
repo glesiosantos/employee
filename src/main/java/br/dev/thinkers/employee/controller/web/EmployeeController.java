@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
@@ -31,9 +32,20 @@ public class EmployeeController {
     public List<State> states() {
         return Arrays.asList(State.values());
     }
+
+    @GetMapping
+    public String loadEmployees(){
+        return "employees/load";
+    }
+
     @GetMapping("/add")
     public String addEmployee(EmployeeDTO employeeDTO){
         return "employees/form";
+    }
+
+    @PostMapping("/save")
+    public String saveEmployee(EmployeeDTO employeeDTO) {
+        return "redirect:/employees";
     }
 
 

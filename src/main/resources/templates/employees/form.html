@@ -18,17 +18,17 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label th:text="#{label.form.employee.salary}"></label>
-                        <input type="text" class="form-control" th:field="*{salary}" required>
+                        <input type="text" class="form-control" th:field="*{salary}" data-mask="#.##0,00" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label th:text="#{label.form.employee.entry.date}"></label>
-                        <input type="text" class="form-control" th:field="*{entryDate}" required>
+                        <input type="text" class="form-control" id="entryDate" th:field="*{entryDate}" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label th:text="#{label.form.employee.departure.date}"></label>
-                        <input type="text" class="form-control" th:field="*{departureDate}">
+                        <input type="text" class="form-control" id="departureDate" th:field="*{departureDate}">
                     </div>
                 </div>
                 <div class="form-row mb-3">
@@ -46,7 +46,7 @@
                 <div class="form-row mb-3">
                     <div class="col-md-4 mb-3">
                         <label th:text="#{label.form.employee.zip}">Zip</label>
-                        <input type="text" th:class="${isInvalid} ? 'form-control is-invalid' : 'form-control'" th:field="*{zipCode}" required>
+                        <input type="text" th:class="${isInvalid} ? 'form-control is-invalid' : 'form-control'" th:field="*{zipCode}" id="zipCode" data-mask="00000-000" required>
                         <div class="invalid-feedback" th:if="${isInvalid}">
                             Please provide a valid zip.
                         </div>
