@@ -17,6 +17,7 @@
     <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" th:href="@{/css/style.min.css}"/>
     <link th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 </head>
 
 <body id="page-top">
@@ -76,6 +77,7 @@
 
 <!-- Bootstrap core JavaScript-->
 <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
 <!-- Core plugin JavaScript-->
@@ -89,6 +91,7 @@
 
 <!-- Page level custom scripts -->
 <script th:src="@{/js/demo/datatables-demo.js}"></script>
+<script th:src="@{/js/demo/jquery.mask.js}"></script>
 <script type="text/javascript">
     var url = ''
     $('button[id*="btn_"]').click(function(){
@@ -100,6 +103,15 @@
     })
 
     $('#myModal').modal('toggle')
+
+    $(function() {
+        $("#entryDate").datepicker({
+            dateFormat: 'dd/mm/yy',
+        })
+        $("#departureDate").datepicker({
+            dateFormat: 'dd/mm/yy',
+        });
+    })
 
 </script>
 

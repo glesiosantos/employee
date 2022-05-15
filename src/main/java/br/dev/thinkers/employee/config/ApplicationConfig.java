@@ -6,18 +6,19 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.i18n.FixedLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 import java.util.Locale;
 
-//@Configuration
+@Configuration
 public class ApplicationConfig implements WebMvcConfigurer {
 
-//    @Bean
+    @Bean
     public LocaleResolver localeResolver() {
-        CookieLocaleResolver resolver = new CookieLocaleResolver();
-        resolver.setDefaultLocale(Locale.US);
-        return resolver;
+//        CookieLocaleResolver resolver = new CookieLocaleResolver();
+//        resolver.setDefaultLocale(Locale.US);
+        return new FixedLocaleResolver(new Locale("pt", "BR"));
     }
 
 //    @Bean

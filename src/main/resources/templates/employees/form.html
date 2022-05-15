@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<body>
+<div layout:fragment="content">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary" th:text="${employeeDTO.id == null} ? #{header.add.form.employee} : #{header.add.form.employee}"></h6>
+        </div>
+        <div class="card-body">
+            <div th:replace="components/alert"></div>
+            <form th:action="${employeeDTO.id == null} ? @{/employees/save} : @{/employees/update}" th:object="${employeeDTO}" method="post">
+                <input type="hidden" th:field="*{id}">
+
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label th:text="#{label.form.employee.name}"></label>
+                        <input type="text" class="form-control" th:field="*{name}" required >
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label th:text="#{label.form.employee.salary}"></label>
+                        <input type="text" class="form-control" th:field="*{salary}" data-mask="#.##0,00" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label th:text="#{label.form.employee.entry.date}"></label>
+                        <input type="text" class="form-control" id="entryDate" th:field="*{entryDate}" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label th:text="#{label.form.employee.departure.date}"></label>
+                        <input type="text" class="form-control" id="departureDate" th:field="*{departureDate}">
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col-md-12 mb-12">
+                        <label th:text="#{label.form.employee.position}">Position</label>
+                        <select th:class="${isInvalid} ? 'custom-select is-invalid' : 'custom-select'" th:field="*{idPosition}" required>
+                            <option value="" th:text="#{select.form.employee.choose.position}">...</option>
+                            <option th:each="p : ${positions}" th:value="${p.id}" th:text="${p.name}">...</option>
+                        </select>
+                        <div class="invalid-feedback" th:if="${isInvalid}">
+                            Please select a valid state.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col-md-4 mb-3">
+                        <label th:text="#{label.form.employee.zip}">Zip</label>
+                        <input type="text" th:class="${isInvalid} ? 'form-control is-invalid' : 'form-control'" th:field="*{zipCode}" id="zipCode" data-mask="00000-000" required>
+                        <div class="invalid-feedback" th:if="${isInvalid}">
+                            Please provide a valid zip.
+                        </div>
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label th:text="#{label.form.employee.street}">Street</label>
+                        <input type="text" th:class="${isInvalid} ? 'form-control is-invalid' : 'form-control'" th:field="*{street}" required>
+                        <div id="validationServer03Feedback" class="invalid-feedback" th:if="${isInvalid}">
+                            Please provide a valid city.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col-md-4 mb-3">
+                        <label th:text="#{label.form.employee.district}">Zip</label>
+                        <input type="text" th:class="${isInvalid} ? 'form-control is-invalid' : 'form-control'" th:field="*{district}" required>
+                        <div class="invalid-feedback" th:if="${isInvalid}">
+                            Please provide a valid zip.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label th:text="#{label.form.employee.city}">City</label>
+                        <input type="text" class="form-control" th:field="*{city}" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationServer04" th:text="#{label.form.employee.state}">State</label>
+                        <select class="custom-select" id="validationServer04" th:field="*{state}" required>
+                            <option value="" th:text="#{select.form.employee.choose.state}">...</option>
+                            <option th:each="state : ${states}" th:value="${state.initials}" th:text="${state.description}">...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col-md-12">
+                        <label for="validationTextarea" th:text="#{label.form.employee.complement}">complement</label>
+                        <textarea class="form-control" th:field="*{complement}"></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" th:text="#{button.form.employee.save}">Save employee</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

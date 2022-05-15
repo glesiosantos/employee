@@ -5,5 +5,7 @@ CREATE TABLE IF NOT EXISTS addresses (
     district VARCHAR(60) NOT NULL,
     city VARCHAR(100) NOT NULL,
     state VARCHAR(2) NOT NULL,
-    complement TEXT
+    complement TEXT,
+    employee_id VARCHAR(150) NOT NULL,
+    CONSTRAINT FK_ADDRESS_EMPLOYEE FOREIGN KEY (employee_id) REFERENCES employees (id) ON UPDATE NO ACTION ON DELETE CASCADE
 );

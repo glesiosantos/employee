@@ -3,6 +3,7 @@ package br.dev.thinkers.employee.controller.web;
 import br.dev.thinkers.employee.controller.dto.PositionDTO;
 import br.dev.thinkers.employee.domain.Department;
 import br.dev.thinkers.employee.domain.Position;
+import br.dev.thinkers.employee.enuns.State;
 import br.dev.thinkers.employee.services.DepartmentService;
 import br.dev.thinkers.employee.services.PositionService;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
