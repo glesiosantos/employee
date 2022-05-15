@@ -1,6 +1,7 @@
 package br.dev.thinkers.employee.controller.dto;
 
 import br.dev.thinkers.employee.domain.Employee;
+import br.dev.thinkers.employee.utils.ConvertDate;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +16,8 @@ public class EmployeeDTO {
     private String salary;
     private LocalDate entryDate;
     private LocalDate departureDate;
+
+    private String addressId;
     private String zipCode;
     private String street;
     private String district;
@@ -22,22 +25,19 @@ public class EmployeeDTO {
     private String state;
     private String complement;
     private String idPosition;
-
+    private String position;
 
     public EmployeeDTO() {}
 
-    public EmployeeDTO(Employee employee) {
-        this.id = employee.getId();
-        this.name = employee.getName();
-        this.salary = employee.getSalary().toString();
-        this.entryDate = employee.getEntryDate();
-        this.departureDate = employee.getDepartureDate();
-        this.zipCode = employee.getAddress().getZipCode();
-        this.street = employee.getAddress().getStreet();
-        this.district = employee.getAddress().getDistrict();
-        this.city = employee.getAddress().getCity();
-        this.state = employee.getAddress().getState().toString();
-        this.complement = employee.getAddress().getComplement();
-        this.idPosition = employee.getPosition().getId();
+    public static EmployeeDTO convertObjectToDto(Employee employee) {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.id = employee.getId();
+        employeeDTO.name = employee.getName();
+        employeeDTO.salary = employee.getSalary().toString();
+        employeeDTO.entryDate = employee.getEntryDate();
+        employeeDTO.departureDate = employee.getDepartureDate() == null ? null : employee.getDepartureDate();
+        employeeDTO.idPosition = employee.getPosition().getId();
+        employeeDTO.position = employee.getPosition().getName();
+        return employeeDTO;
     }
 }

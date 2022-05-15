@@ -105,8 +105,12 @@
     $('#myModal').modal('toggle')
 
     $(function() {
-        $("#entryDate").datepicker()
-        $("#departureDate").datepicker();
+        $("#entryDate").datepicker({
+            dateFormat: 'dd/mm/yy',
+        })
+        $("#departureDate").datepicker({
+            dateFormat: 'dd/mm/yy',
+        });
     })
 
 </script>

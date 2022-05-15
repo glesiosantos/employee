@@ -20,7 +20,8 @@ public class Address extends AbstractEntity<String> {
 
     @Enumerated(EnumType.STRING)
     private State state;
-
     private String complement;
 
+    @ManyToOne
+    private Employee employee;
 }

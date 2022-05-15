@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="validationServer04" th:text="#{label.form.employee.state}">State</label>
-                        <select class="custom-select" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                        <select class="custom-select" id="validationServer04" th:field="*{state}" required>
                             <option value="" th:text="#{select.form.employee.choose.state}">...</option>
                             <option th:each="state : ${states}" th:value="${state.initials}" th:text="${state.description}">...</option>
                         </select>
@@ -81,8 +81,8 @@
                 </div>
                 <div class="form-row mb-3">
                     <div class="col-md-12">
-                        <label for="validationTextarea" th:text="#{label.form.employee.observation}">Observation</label>
-                        <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea"></textarea>
+                        <label for="validationTextarea" th:text="#{label.form.employee.complement}">complement</label>
+                        <textarea class="form-control" th:field="*{complement}"></textarea>
                     </div>
                 </div>
                 <button class="btn btn-primary" type="submit" th:text="#{button.form.employee.save}">Save employee</button>
